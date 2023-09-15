@@ -2702,6 +2702,21 @@
     
     <script src="../assets/js/calendar.js"></script>
     <script src="../assets/js/account.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
+    <script>
+      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+      $(function () {
+        $(".jq-appointmentDate").datepicker({
+          minDate: 0,
+          maxDate: "+1M +10D",
+          formatDate: "yy-mm-dd",
+        });
+      });
+      $(function () {
+        $(".jq-birthday").datepicker({
+          changeMonth: true,
+          changeYear: true,
+        });
+      });
+    </script>
   </body>
 </html>

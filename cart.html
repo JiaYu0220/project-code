@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>購物車 | C0DE</title>
+    <link
+      rel="shortcut icon"
+      href="/project-code/assets/favicon-ee1e2dda.ico"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/index-6f271a4d.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-1008d22c.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex">
+      <a
+        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
+        href="./cart.html"
+        type="button"
+        ><i class="fa-solid fa-cart-shopping"></i
+      ></a>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
+
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block "
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="./course.html">前端</a></li>
+                  <li><a href="./course.html">後端</a></li>
+                  <li><a href="./course.html">資料庫</a></li>
+                  <li><a href="./course.html">資安</a></li>
+                  <li><a href="./course.html">產品測試</a></li>
+                  <li><a href="./course.html">UI / UX</a></li>
+                  <li><a href="./course.html">開發維運</a></li>
+                  <li><a href="./course.html">行動應用</a></li>
+                  <li><a href="./course.html">AI</a></li>
+                  <li><a href="./course.html">遊戲開發</a></li>
+                  <li><a href="./course.html">程式入門</a></li>
+                  <li><a href="./course.html">職涯</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block "
+            aria-current="page"
+            href="./faq.html"
+            >常見問題</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問題
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="./faq.html">學生常見問答</a></li>
+                  <li><a href="./faq.html">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+          >
+            聯絡老師
+          </button>
+          <button
+            class="nav-link d-block d-lg-none mx-auto"
+            aria-current="page"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+          >
+            聯絡老師
+          </button>
+        </li>
+      </ul>
+
+      <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
+        <a
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
+          href="./cart.html"
+          type="button"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a
+          href="./account.html"
+          type="button"
+          class="btn btn-member btn-secondary2"
+        >
+          會員中心
+        </a>
+        <a
+          href="./register.html"
+          type="button"
+          class="btn btn-register btn-secondary2"
+        >
+          註冊
+        </a>
+        <a href="./login.html" type="button" class="btn btn-login fw-medium"
+          >登入</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- message -->
+<div
+  class="offcanvas offcanvas-end message"
+  tabindex="-1"
+  id="message-list"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">訊息</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="input-group p-4 pt-0 border-bottom border-gray-200">
+    <input
+      type="text"
+      class="form-control border border-gray-200"
+      placeholder="搜尋教師姓名"
+      aria-label="search keywords"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-secondary2 btn-search border border-secondary2"
+      type="button"
+      id="button-addon2"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <ul class="offcanvas-body p-0 d-flex flex-column">
+    <li class="message-item">
+      <a
+        href="###"
+        class="d-block px-4 py-3"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-mike"
+        aria-controls="message-mike"
+      >
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/mike-3c4b76a2.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">麥克先生</h4>
+              <span>3 天前</span>
+            </div>
+            <p class="text-truncate">
+              感謝你預約我的體驗課，在上課前請幫我填寫
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/arong-b7b838fb.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">榮哥</h4>
+              <span>4 天前</span>
+            </div>
+            <p class="text-truncate">
+              謝謝你預約「一起打造你的前端職涯」課程，這是上課內容大綱的檔案連結，可以提前思考有什麼相關的問題想詢問，期待禮拜五見囉
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/alice-26beb67d.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">艾莉絲</h4>
+              <span>5 天前</span>
+            </div>
+            <p class="text-truncate">
+              嗨，我是艾莉絲，有 8 年 Python 教學經驗，
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="message-mike"
+  aria-labelledby="message"
+>
+  <div class="offcanvas-header border-bottom border-gray-200">
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-back"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-list"
+        aria-controls="#message-list"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img
+        class="me-3"
+        style="width: 50px; height: 50px"
+        src="/project-code/assets/mike-3c4b76a2.png"
+        alt="mike"
+      />
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body" style="height: calc(100% - 177px)">
+    <ul class="d-flex flex-column gap-6">
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">hello</p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            嗨，我是麥克先生😀 不是麥克雞塊喔xDD 我的課會帶你一起探索 JavaScript
+            更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...等
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            歡迎預約時間上課 體驗課有優惠喔~ 可以先體驗，再決定要不要買很多堂
+            有問題都可以直接詢問 👾
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex justify-content-end ms-13">
+        <div class="d-flex flex-column align-items-end">
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
+          </p>
+          <p class="fs-7 text-gray-200">10天前</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="editor"></div>
+</div>
+    <!--========================
+    =        step bar          =
+    =========================-->
+    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15">
+      <div class="col-md-10 col-lg-7 mx-auto">
+        <ul
+          class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
+        >
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item ready mb-1 mb-md-2">1</div>
+            <p class="fw-bold">確認付款</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item mb-1 mb-md-2">2</div>
+            <p class="fw-bold">預約時段</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item mb-1 mb-md-2">3</div>
+            <p class="fw-bold">課程明細</p>
+          </li>
+        </ul>
+        <!--========================
+            =           card           =
+            =========================-->
+        <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">訂單資訊</h2>
+        <!-- card -->
+        <ul class="list-unstyle d-flex flex-column gap-5 mb-3">
+          <!-- card1 -->
+          <li>
+            <div
+              class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
+            >
+              <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+                從零開始成為切版大師
+              </h3>
+              <div class="row justify-content-between">
+                <!-- 老師區塊 -->
+                <div
+                  class="col-4 col-sm-3 d-flex flex-column align-items-start"
+                >
+                  <div class="text-center">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6">麥克先生</h5>
+                  </div>
+                </div>
+
+                <div class="col-8 col-sm-9">
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour1"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
+                          name="hour1"
+                          id="hour1"
+                          disabled
+                        >
+                          <option value="50" selected>50</option>
+                        </select>
+                      </label>
+
+                      <label class="w-150px" for="count1"
+                        >堂數 (堂)
+                        <div class="input-group w-fit mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count1"
+                            value="2"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
+                    </div>
+                  </form>
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex gap-3">
+                      <h4 class="fs-5 fs-md-4 fw-bold text-deleted">
+                        NT$ 1,100
+                      </h4>
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 550</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end gap-4">
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2024-01-01">2024/1/1</time> 到期
+                  </p>
+                  <a class="text-decoration-underline" href="#">下次再買</a>
+                  <a class="text-decoration-underline" href="#">刪除</a>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">體驗價</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 50%</span>
+              </p>
+            </div>
+          </li>
+          <!-- card2 -->
+          <li>
+            <div
+              class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
+            >
+              <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+                Python 全攻略
+              </h3>
+              <div class="row justify-content-between">
+                <!-- 老師區塊 -->
+                <div
+                  class="col-4 col-sm-3 d-flex flex-column align-items-start"
+                >
+                  <div class="text-center">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6">艾莉絲</h5>
+                  </div>
+                </div>
+
+                <div class="col-8 col-sm-9">
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour2"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
+                          name="hour2"
+                          id="hour2"
+                          disabled
+                        >
+                          <option value="50" selected>50</option>
+                        </select>
+                      </label>
+
+                      <label class="w-150px" for="count2"
+                        >堂數 (堂)
+                        <div class="input-group w-fit mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count2"
+                            value="1"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
+                    </div>
+                  </form>
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex gap-3">
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 1,000</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end gap-4">
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2021-02-01">2024/2/1</time> 到期
+                  </p>
+                  <a class="text-decoration-underline" href="#">下次再買</a>
+                  <a class="text-decoration-underline" href="#">刪除</a>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">體驗價</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 1,200 元</span>
+              </p>
+            </div> -->
+          </li>
+        </ul>
+
+        <!--========================
+        =       優惠券 價格         =
+        =========================-->
+        <hr class="border-secondary border-3" />
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between mb-5 gap-4"
+        >
+          <div class="d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-4">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">全課程 9 折</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 155 元</span>
+              </p>
+            </div>
+            <form class="mb-1" action="#">
+              <label class="form-label" for="coupon">優惠券</label>
+              <div class="input-group">
+                <input
+                  class="form-control border-primary"
+                  list="couponOption"
+                  id="coupon"
+                  placeholder="請輸入優惠券"
+                />
+                <datalist id="couponOption">
+                  <option value=""></option>
+                  <option value="全課程 9 折">全課程 9 折</option>
+                  <option value="LEARNING">
+                    體驗價 - 一起打造你的前端職涯
+                  </option>
+                </datalist>
+                <button type="submit" class="btn btn-secondary2 rounded-end-2">
+                  使用
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <table
+            class="w-fit table table-sm table-borderless text-end align-self-end mb-0"
+          >
+            <thead>
+              <tr>
+                <th scope="row" colspan="2" class="fs-7 fs-md-6 fw-bold">
+                  NT$ 2,100
+                </th>
+              </tr>
+            </thead>
+            <tbody class="fs-sm fs-md-7 border-bottom border-dark">
+              <tr>
+                <th class="pe-4 fw-normal" scope="row">課程優惠</th>
+                <td>- NT$ 550</td>
+              </tr>
+              <tr class="boder-bottom boder-1">
+                <th class="pe-4 fw-normal" scope="row">全站折扣</th>
+                <td>- NT$ 155</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2" class="fs-5 fs-md-4 fw-bold pb-0">
+                  NT$ 1,395
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <hr class="border-secondary border-3" />
+        <!--========================
+            =        付款方式          =
+            =========================-->
+        <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">付款方式</h2>
+        <div>
+          <!-- tabs -->
+          <ul class="nav nav-pills gap-6 mb-3" id="payWay" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="creditCard-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#creditCard"
+                type="button"
+                role="tab"
+                aria-controls="creditCard"
+                aria-selected="true"
+              >
+                信用卡
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="store-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#store"
+                type="button"
+                role="tab"
+                aria-controls="store"
+                aria-selected="false"
+              >
+                超商代繳
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="atm-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#atm"
+                type="button"
+                role="tab"
+                aria-controls="atm"
+                aria-selected="false"
+              >
+                ATM 轉帳
+              </button>
+            </li>
+          </ul>
+          <!-- 內容-->
+          <div class="tab-content p-4" id="payWayContent">
+            <!-- 信用卡 -->
+            <div
+              class="tab-pane fade"
+              id="creditCard"
+              role="tabpanel"
+              aria-labelledby="creditCard-tab"
+              tabindex="0"
+            >
+              <!-- 分期 -->
+              <ul class="mb-4">
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardAll"
+                  />
+                  <label class="form-check-label" for="creditCardAll">
+                    一次付清
+                  </label>
+                </li>
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardPayWayThree"
+                    checked
+                  />
+                  <label class="form-check-label" for="creditCardPayWayThree">
+                    分 3 期 0 利率<span
+                      class="text-decoration-underline"
+                      title="A銀行、B銀行、C銀行、D銀行、E銀行"
+                      >(20家銀行)</span
+                    >
+                  </label>
+                </li>
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardPayWaySix"
+                    checked
+                  />
+                  <label class="form-check-label" for="creditCardPayWaySix">
+                    分 6 期 0 利率<span
+                      class="text-decoration-underline"
+                      title="A銀行、B銀行、C銀行、D銀行、E銀行"
+                      >(20家銀行)</span
+                    >
+                  </label>
+                </li>
+              </ul>
+              <!-- 信用卡資料 -->
+              <form class="row g-4" action="cart2.html" method="post">
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="creditCardId"
+                    >信用卡帳號</label
+                  >
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="creditCardId"
+                    id="creditCardId"
+                    inputmode="numeric"
+                    pattern="[0-9]{16}"
+                    placeholder="16碼"
+                    required
+                  />
+                </div>
+
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="csc">安全碼</label>
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="csc"
+                    id="csc"
+                    inputmode="numeric"
+                    placeholder="CVC"
+                    pattern="[0-9]{3}"
+                    required
+                  />
+                </div>
+
+                <div class="col-6 col-md-3 mb-4 mb-md-6">
+                  <label class="form-label" for="creditDate">有效日期</label>
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="creditDate"
+                    id="creditDate"
+                    inputmode="numeric"
+                    placeholder="MMYY"
+                    pattern="[0-9]{4}"
+                    required
+                  />
+                </div>
+
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-secondary2 rounded-2">
+                    下一步
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- 超商代繳 -->
+            <div
+              class="tab-pane fade"
+              id="store"
+              role="tabpanel"
+              aria-labelledby="store-tab"
+              tabindex="0"
+            >
+              <div class="d-flex flex-column">
+                <ul class="ms-6 mb-4 mb-md-6">
+                  <li class="list-disc text-justify">
+                    確認送出交易後您將取得超商繳費代碼，您可至全台
+                    [7-11、全家、OK超商、萊爾富] 店內之多媒體機台
+                    (ibon、FamiPort、OK-go、Life-ET)
+                    上列印繳費單至超商櫃台以現金繳費。
+                  </li>
+                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                </ul>
+                <a
+                  href="cart2.html"
+                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  >下一步</a
+                >
+              </div>
+            </div>
+            <!-- ATM 轉帳 -->
+            <div
+              class="tab-pane fade"
+              id="atm"
+              role="tabpanel"
+              aria-labelledby="atm-tab"
+              tabindex="0"
+            >
+              <div class="d-flex flex-column">
+                <ul class="ms-6 mb-4 mb-md-6">
+                  <li class="list-disc text-justify">
+                    您可以使用任一台灣金融機構所發行之金融卡來進行 ATM
+                    轉帳，若持有 台新銀行 所發行之金融卡，則可享有轉帳免手續費。
+                  </li>
+                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                </ul>
+                <a
+                  href="cart2.html"
+                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  >下一步</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <a
+        href="https://www.facebook.com/"
+        class="btn btn-outlined-circle"
+        type="button"
+        target="_blank"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </a>
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </a>
+      <a
+        href="https://www.linkedin.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="./course.html">課程分類</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="./faq.html">常見問題</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-secondary2 text-white fs-tiny text-center py-3">
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
+</div>
+    <!-- backtotop -->
+    <button
+  type="button"
+  class="rounded-circle text-light border-0 backtotopBtn z-1"
+>
+  <p class="fs-tiny">TOP</p>
+</button>
+    
+  </body>
+</html>

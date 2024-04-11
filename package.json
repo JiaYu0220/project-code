@@ -8,9 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "vite build && gh-pages -d dist",
-    "home": "git remote add  Peg-L git@github.com:Peg-L/project-code.git",
-    "pull": "git fetch Peg-L && git merge Peg-L/main",
-    "moon-PR": "start chrome --app=https://github.com/Peg-L/project-code/compare/main...moon-start:project-code:main"
+    "home": "git remote add  JiaYu0220 git@github.com:JiaYu0220/project-code.git",
+    "pull": "git fetch JiaYu0220 && git merge JiaYu0220/main"
   },
   "devDependencies": {
     "ejs": "^3.1.9",

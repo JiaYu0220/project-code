@@ -59,7 +59,6 @@ async function getCoursesData({
 
     const res = await axios.get(apiUrl);
     currentPageCourses = res.data;
-    console.log('currentPageCourses', currentPageCourses);
 
     allCoursesNum = parseInt(res.headers.get('X-Total-Count'));
     totalSearchNum.innerHTML = `共 ${allCoursesNum} 個結果`;

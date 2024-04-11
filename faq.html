@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
       rel="shortcut icon"
-      href="/project-code/assets/favicon-ee1e2dda.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
-    <script type="module" crossorigin src="/project-code/assets/index-6f271a4d.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1008d22c.css">
+    <script type="module" crossorigin src="/project-code/assets/faq-8b97a6d8.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/main-64c8deac.js">
+    <link rel="stylesheet" href="/project-code/assets/main-5543e1db.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -19,23 +20,26 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+        data-bs-target="#loginModal"
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -87,18 +91,42 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./course.html">前端</a></li>
-                  <li><a href="./course.html">後端</a></li>
-                  <li><a href="./course.html">資料庫</a></li>
-                  <li><a href="./course.html">資安</a></li>
-                  <li><a href="./course.html">產品測試</a></li>
-                  <li><a href="./course.html">UI / UX</a></li>
-                  <li><a href="./course.html">開發維運</a></li>
-                  <li><a href="./course.html">行動應用</a></li>
-                  <li><a href="./course.html">AI</a></li>
-                  <li><a href="./course.html">遊戲開發</a></li>
-                  <li><a href="./course.html">程式入門</a></li>
-                  <li><a href="./course.html">職涯</a></li>
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -106,10 +134,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block menu-active"
+            class="nav-link pc d-none d-lg-block student-faq menu-active"
             aria-current="page"
-            href="./faq.html"
-            >常見問題</a
+            href="#"
+            >常見問答</a
           >
           <div
             class="accordion accordion-flush d-block d-lg-none"
@@ -125,7 +153,7 @@
                   aria-expanded="false"
                   aria-controls="faq"
                 >
-                  常見問題
+                  常見問答
                 </button>
               </h2>
               <div
@@ -134,8 +162,10 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./faq.html">學生常見問答</a></li>
-                  <li><a href="./faq.html">老師常見問答</a></li>
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -165,17 +195,23 @@
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
         <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+          data-bs-target="#loginModal"
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </a>
         <a
           href="./account.html"
           type="button"
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
+          登出
         </a>
         <a
           href="./register.html"
@@ -236,7 +272,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/mike-3c4b76a2.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -256,7 +292,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/arong-b7b838fb.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/arong.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -276,7 +312,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/alice-26beb67d.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/alice.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -314,7 +350,7 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="/project-code/assets/mike-3c4b76a2.png"
+        src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
         alt="mike"
       />
       <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
@@ -332,7 +368,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -344,7 +380,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -359,7 +395,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -382,18 +418,338 @@
   </div>
   <div id="editor"></div>
 </div>
+<!-- login modal -->
+<!-- Modal -->
+
+<!-- 跳轉提示 modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-4" id="staticBackdropLabel">貼心提醒</h1>
+        <button
+          type="button"
+          class="btn-close"
+          id="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body pt-0 fs-6">
+        <p>
+          欲購買與收藏課程，點此<a class="text-primary" href="./login.html"
+            >登入會員</a
+          >
+        </p>
+        <p><span id="timeBox">5</span> 秒後自動跳轉登入頁面</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 註冊登入 modal -->
+<!-- <div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-6">
+        <div class="text-center position-relative">
+          <img
+            class="mb-2 mb-md-3"
+            src="../assets/images/logo-img.svg"
+            alt="logo"
+          />
+          <button
+            type="button"
+            class="btn-close position-absolute end-0"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <ul
+          class="nav nav-pills mb-3 d-flex justify-content-evenly"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              註冊
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              登入
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="registerForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <div id="firebaseui-auth-container">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                    id="google-register2"
+                  >
+                    <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+                  </button>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmail2"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmail2">Email</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-1"
+                    id="floatingName2"
+                    placeholder="Username"
+                    required
+                  />
+                  <label for="floatingName2">姓名</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingTel2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingTel2">手機</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="sendCode2"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-1 d-none"
+                      aria-hidden="true"
+                      id="sendCodeSpinner2"
+                    ></span>
+                    <span role="status">發送驗證碼</span>
+                  </button>
+                </div>
+                <div
+                  class="form-floating mb-2 mb-md-4 d-none"
+                  id="inputVerifyCode2"
+                >
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingVerifyCode2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="verify-button2"
+                  >
+                    立即驗證
+                  </button>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPassword2"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPassword2">密碼</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    />
+                  </svg>
+                  大於8個字元，包含數字、大寫和小寫字母
+                </div>
+                <div
+                  class="form-floating d-flex align-items-center mb-2 mb-md-4"
+                >
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingCheckPassword"
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingCheckPassword">確認密碼</label>
+                </div>
+                <button
+                  id="registerBtn2"
+                  type="button"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3"
+                  ds-
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  加入會員
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="loginForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                  id="google-login"
+                >
+                  <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+                </button>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmailLogin"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmailLogin">Email</label>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPasswordLogin"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPasswordLogin">密碼</label>
+                </div>
+                <div
+                  id="passwordHelpBlock"
+                  class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-exclamation-circle me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                      />
+                    </svg>
+                    大於8個字元，包含數字、大寫和小寫字母
+                  </div>
+                  <div><a href="###">忘記密碼?</a></div>
+                </div>
+                <button
+                  type="button"
+                  id="loginButton"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  登入會員
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
     <div class="container-fluid mt-16 mt-md-19">
       <div
-        class="rounded-3 d-flex mb-8 mb-md-13 h-200px h-md-300px"
+        class="rounded-3 d-flex mb-4 mb-md-13 h-200px h-md-300px"
         style="
-          background: url('/project-code/assets/banner2-7afcc09d.jpg') no-repeat center /
-            cover;
+          background: url('https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/banner2.jpg')
+            no-repeat center / cover;
         "
       >
-        <div class="container my-auto">
+        <div class="container my-auto p-4">
           <h3
-            class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+            class="d-none d-md-inline-block badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
           >
             F&Q
           </h3>
@@ -401,13 +757,17 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control border-light"
+              class="form-control border-light faq-search-input z-1"
               placeholder="問題關鍵字搜尋..."
               aria-label="search keywords"
               aria-describedby="button-addon2"
             />
+            <i
+              type="button"
+              class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+            ></i>
             <button
-              class="btn btn-secondary2 btn-search z-0"
+              class="btn btn-secondary2 btn-search faq-search-btn"
               type="button"
               id="button-addon2"
             >
@@ -451,14 +811,14 @@
       </ul>
       <!-- 問答內容-學生 -->
       <div
-        class="row tab-pane fade d-none show active"
+        class="row tab-pane fade d-none show active mb-8"
         id="student"
         role="tabpanel"
         aria-labelledby="student-tab"
       >
-        <div class="col-12 col-md-8 offset-md-2 mb-16">
+        <div class="col-12 col-md-8 offset-md-2 mb-8">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse1"
@@ -470,7 +830,7 @@
           </button>
           <div class="collapse show" id="collapse1">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#shop-problem"
@@ -479,10 +839,10 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何購買課堂?</p>
+                <p class="faq-question">如何購買課堂?</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
-              <div class="collapse fs-7 mt-4" id="shop-problem">
+              <div class="collapse fs-7 mt-4 faq-answer" id="shop-problem">
                 <ul class="p-0">
                   <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
                   <li>
@@ -507,7 +867,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#refund"
@@ -516,7 +876,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何查看退款要求的狀態？</p>
+                <p class="faq-question">如何查看退款要求的狀態？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="refund">
@@ -533,7 +893,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#history"
@@ -542,7 +902,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>我如何查看交易紀錄、消費明細、發票？</p>
+                <p class="faq-question">我如何查看交易紀錄、消費明細、發票？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="history">
@@ -556,9 +916,9 @@
             </button>
           </div>
         </div>
-        <div class="col-12 col-md-8 offset-md-2 mb-16">
+        <div class="col-12 col-md-8 offset-md-2 mb-8">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse2"
@@ -570,7 +930,7 @@
           </button>
           <div class="collapse show" id="collapse2">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#howToUse"
@@ -579,7 +939,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何開始使用C0DE？</p>
+                <p class="faq-question">如何開始使用C0DE？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="howToUse">
@@ -617,7 +977,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#reminderTime"
@@ -626,7 +986,9 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）</p>
+                <p class="faq-question">
+                  如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）
+                </p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="reminderTime">
@@ -647,7 +1009,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#appraise"
@@ -656,7 +1018,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何為已完成的課程留下/ 更改評價？</p>
+                <p class="faq-question">如何為已完成的課程留下/ 更改評價？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="appraise">
@@ -690,7 +1052,7 @@
         </div>
         <div class="col-12 col-md-8 offset-md-2">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse3"
@@ -702,7 +1064,7 @@
           </button>
           <div class="collapse show" id="collapse3">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#classReservations"
@@ -711,7 +1073,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何課程預約?</p>
+                <p class="faq-question">如何課程預約?</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="classReservations">
@@ -752,7 +1114,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#return"
@@ -761,7 +1123,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何申請退課?</p>
+                <p class="faq-question">如何申請退課?</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="return">
@@ -790,7 +1152,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#classQuestions"
@@ -799,7 +1161,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>課程有問題</p>
+                <p class="faq-question">課程有問題</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="classQuestions">
@@ -825,14 +1187,14 @@
       </div>
       <!-- 問答內容-老師 -->
       <div
-        class="row tab-pane fade d-none"
+        class="row tab-pane fade d-none mb-8"
         id="teacher"
         role="tabpanel"
         aria-labelledby="teacher-tab"
       >
-        <div class="col-12 col-md-8 offset-md-2 mb-16">
+        <div class="col-12 col-md-8 offset-md-2 mb-8">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse4"
@@ -844,7 +1206,7 @@
           </button>
           <div class="collapse show" id="collapse4">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#accountSettings"
@@ -853,7 +1215,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何更新個人資料?</p>
+                <p class="faq-question">如何更新個人資料?</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="accountSettings">
@@ -883,7 +1245,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#applyForACourse"
@@ -892,7 +1254,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何申請課程？</p>
+                <p class="faq-question">如何申請課程？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="applyForACourse">
@@ -923,7 +1285,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#accountIssues"
@@ -932,7 +1294,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>我遇到了帳號相關的問題，該怎麼辦？</p>
+                <p class="faq-question">我遇到了帳號相關的問題，該怎麼辦？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="accountIssues">
@@ -962,9 +1324,9 @@
             </button>
           </div>
         </div>
-        <div class="col-12 col-md-8 offset-md-2 mb-16">
+        <div class="col-12 col-md-8 offset-md-2 mb-8">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse5"
@@ -976,7 +1338,7 @@
           </button>
           <div class="collapse show" id="collapse5">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#howToUse1"
@@ -985,7 +1347,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何開始使用C0DE？</p>
+                <p class="faq-question">如何開始使用C0DE？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="howToUse1">
@@ -1007,7 +1369,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collectionMethod"
@@ -1016,7 +1378,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何設定我的收帳方式？</p>
+                <p class="faq-question">如何設定我的收帳方式？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="collectionMethod">
@@ -1049,7 +1411,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#commentOnChanges"
@@ -1058,7 +1420,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>如何為已完成的課程留下/ 更改評價？</p>
+                <p class="faq-question">如何為已完成的課程留下/ 更改評價？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="commentOnChanges">
@@ -1074,7 +1436,7 @@
         </div>
         <div class="col-12 col-md-8 offset-md-2">
           <button
-            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            class="btn rounded-2 rounded-bottom-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapse6"
@@ -1086,7 +1448,7 @@
           </button>
           <div class="collapse show" id="collapse6">
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#coupons"
@@ -1095,7 +1457,7 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>我如何為學生贈送優惠卷？</p>
+                <p class="faq-question">我如何為學生贈送優惠卷？</p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="coupons">
@@ -1135,7 +1497,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#sale"
@@ -1144,7 +1506,9 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>我想為學生提供特定課程的價格報價，該怎麼做？</p>
+                <p class="faq-question">
+                  我想為學生提供特定課程的價格報價，該怎麼做？
+                </p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="sale">
@@ -1179,7 +1543,7 @@
               </div>
             </button>
             <button
-              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5 faq-team"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#chat"
@@ -1188,7 +1552,9 @@
               id="littleFold"
             >
               <div class="d-flex justify-content-between align-items-center">
-                <p>我想與學生進行即時溝通，該怎麼使用聊天機器人？</p>
+                <p class="faq-question">
+                  我想與學生進行即時溝通，該怎麼使用聊天機器人？
+                </p>
                 <i class="fa-solid fa-plus plus"></i>
               </div>
               <div class="collapse fs-7 mt-4" id="chat">
@@ -1226,9 +1592,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="card card-body rounded-0">
-                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                  </div> -->
     <div
   class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
 >
@@ -1239,12 +1602,12 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
@@ -1319,20 +1682,17 @@
   type="button"
   class="rounded-circle text-light border-0 backtotopBtn z-1"
 >
-  <p class="fs-tiny">TOP</p>
+  <p class="fs-6"><i class="fa-solid fa-chevron-up"></i></p>
 </button>
 
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
     <!--  -->
     
-    <script src="../assets/js/calendar.js"></script>
-    <script src="../assets/js/account.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
-    <script src="../assets/js/fold.js"></script>
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    
   </body>
 </html>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
       rel="shortcut icon"
-      href="/project-code/assets/favicon-ee1e2dda.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
       rel="stylesheet"
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-6f271a4d.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1008d22c.css">
+    <script type="module" crossorigin src="/project-code/assets/account-bcef518c.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/main-64c8deac.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/openTime-f6403d24.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/helper-ae07f62d.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/swal-5831e0de.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/startCourse-2b1863b9.js">
+    <link rel="stylesheet" href="/project-code/assets/main-5543e1db.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -24,23 +28,26 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+        data-bs-target="#loginModal"
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -92,18 +99,42 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./course.html">前端</a></li>
-                  <li><a href="./course.html">後端</a></li>
-                  <li><a href="./course.html">資料庫</a></li>
-                  <li><a href="./course.html">資安</a></li>
-                  <li><a href="./course.html">產品測試</a></li>
-                  <li><a href="./course.html">UI / UX</a></li>
-                  <li><a href="./course.html">開發維運</a></li>
-                  <li><a href="./course.html">行動應用</a></li>
-                  <li><a href="./course.html">AI</a></li>
-                  <li><a href="./course.html">遊戲開發</a></li>
-                  <li><a href="./course.html">程式入門</a></li>
-                  <li><a href="./course.html">職涯</a></li>
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -111,10 +142,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block "
+            class="nav-link pc d-none d-lg-block student-faq "
             aria-current="page"
-            href="./faq.html"
-            >常見問題</a
+            href="#"
+            >常見問答</a
           >
           <div
             class="accordion accordion-flush d-block d-lg-none"
@@ -130,7 +161,7 @@
                   aria-expanded="false"
                   aria-controls="faq"
                 >
-                  常見問題
+                  常見問答
                 </button>
               </h2>
               <div
@@ -139,8 +170,10 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./faq.html">學生常見問答</a></li>
-                  <li><a href="./faq.html">老師常見問答</a></li>
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -170,17 +203,23 @@
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
         <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+          data-bs-target="#loginModal"
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </a>
         <a
           href="./account.html"
           type="button"
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
+          登出
         </a>
         <a
           href="./register.html"
@@ -241,7 +280,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/mike-3c4b76a2.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -261,7 +300,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/arong-b7b838fb.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/arong.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -281,7 +320,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/alice-26beb67d.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/alice.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -319,7 +358,7 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="/project-code/assets/mike-3c4b76a2.png"
+        src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
         alt="mike"
       />
       <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
@@ -337,7 +376,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -349,7 +388,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -364,7 +403,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -387,16 +426,337 @@
   </div>
   <div id="editor"></div>
 </div>
+<!-- login modal -->
+<!-- Modal -->
+
+<!-- 跳轉提示 modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-4" id="staticBackdropLabel">貼心提醒</h1>
+        <button
+          type="button"
+          class="btn-close"
+          id="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body pt-0 fs-6">
+        <p>
+          欲購買與收藏課程，點此<a class="text-primary" href="./login.html"
+            >登入會員</a
+          >
+        </p>
+        <p><span id="timeBox">5</span> 秒後自動跳轉登入頁面</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 註冊登入 modal -->
+<!-- <div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-6">
+        <div class="text-center position-relative">
+          <img
+            class="mb-2 mb-md-3"
+            src="../assets/images/logo-img.svg"
+            alt="logo"
+          />
+          <button
+            type="button"
+            class="btn-close position-absolute end-0"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <ul
+          class="nav nav-pills mb-3 d-flex justify-content-evenly"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              註冊
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              登入
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="registerForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <div id="firebaseui-auth-container">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                    id="google-register2"
+                  >
+                    <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+                  </button>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmail2"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmail2">Email</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-1"
+                    id="floatingName2"
+                    placeholder="Username"
+                    required
+                  />
+                  <label for="floatingName2">姓名</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingTel2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingTel2">手機</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="sendCode2"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-1 d-none"
+                      aria-hidden="true"
+                      id="sendCodeSpinner2"
+                    ></span>
+                    <span role="status">發送驗證碼</span>
+                  </button>
+                </div>
+                <div
+                  class="form-floating mb-2 mb-md-4 d-none"
+                  id="inputVerifyCode2"
+                >
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingVerifyCode2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="verify-button2"
+                  >
+                    立即驗證
+                  </button>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPassword2"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPassword2">密碼</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    />
+                  </svg>
+                  大於8個字元，包含數字、大寫和小寫字母
+                </div>
+                <div
+                  class="form-floating d-flex align-items-center mb-2 mb-md-4"
+                >
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingCheckPassword"
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingCheckPassword">確認密碼</label>
+                </div>
+                <button
+                  id="registerBtn2"
+                  type="button"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3"
+                  ds-
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  加入會員
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="loginForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                  id="google-login"
+                >
+                  <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+                </button>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmailLogin"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmailLogin">Email</label>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPasswordLogin"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPasswordLogin">密碼</label>
+                </div>
+                <div
+                  id="passwordHelpBlock"
+                  class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-exclamation-circle me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                      />
+                    </svg>
+                    大於8個字元，包含數字、大寫和小寫字母
+                  </div>
+                  <div><a href="###">忘記密碼?</a></div>
+                </div>
+                <button
+                  type="button"
+                  id="loginButton"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  登入會員
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
     <div class="bg-account mt-16 mt-md-19">
       <div class="container h-100 d-flex align-items-center">
         <img
-          src="/project-code/assets/Ellipse 1 (2)-9cb89071.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/ellipse2.png"
           alt="大頭貼"
           class="user-img"
+          id="userImg"
         />
         <div class="ps-41">
-          <h2 class="fs-4 fw-bold mb-1">貓咪</h2>
-          <p>前端工程師</p>
+          <h2 class="fs-4 fw-bold mb-1" id="userName"></h2>
+          <p id="userRole"></p>
         </div>
       </div>
     </div>
@@ -483,7 +843,7 @@
           >
             帳號設定
           </button>
-          <!-- 我的關注 (My Followings)-->
+          <!-- 我的收藏 (My Followings)-->
           <button
             class="nav-link"
             id="nav-my-following-tab"
@@ -494,7 +854,7 @@
             aria-controls="nav-my-following"
             aria-selected="false"
           >
-            我的關注
+            我的收藏
           </button>
         </div>
       </nav>
@@ -502,7 +862,7 @@
       <div class="tab-content" id="nav-tabContent">
         <!-- 我的課表 (Schedule) -->
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade active show"
           id="nav-schedule"
           role="tabpanel"
           aria-labelledby="nav-schedule-tab"
@@ -540,7 +900,7 @@
               <div
                 class="d-flex flex-column align-items-center justify-content-center"
               >
-                <div
+                <!-- <div
                   class="d-flex align-items-center justify-content-around mb-4 gap-4"
                 >
                   <button
@@ -560,83 +920,38 @@
                       navigate_next
                     </span>
                   </button>
+                </div> -->
+                <div class="mb-lg-12 mb-10 w-100">
+                  <!-- data -->
+                  <div
+                    class="d-flex align-items-center justify-content-around mb-4"
+                  >
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="PreviousWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        chevron_left
+                      </span>
+                    </button>
+                    <p class="" id="dateRange"></p>
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="NextWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        navigate_next
+                      </span>
+                    </button>
+                  </div>
+                  <!-- calendar -->
+                  <ul
+                    class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
+                    id="calendar"
+                  ></ul>
                 </div>
-                <!-- calendar -->
-                <ul class="calendar d-flex justify-content-center gap-3">
-                  <li class="calendar-list">
-                    <p class="text-center">日</p>
-                    <ul class="calendar-time2">
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          08:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          10:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          13:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          18:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          20:00
-                        </button>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">一</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">二</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">三</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">四</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">五</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">六</p>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -665,30 +980,27 @@
                   >
                     <img
                       class="w-75px"
-                      src="/project-code/assets/mike-3c4b76a2.png"
+                      src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
                       alt="麥克先生"
+                      id="courseImg"
                     />
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>教師</p>
-                      <p class="fw-bold">麥克先生</p>
+                      <p class="fw-bold" id="courseTeacherName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>課程項目</p>
-                      <p class="fw-bold">JavaScript 大師</p>
+                      <p class="fw-bold" id="courseName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>上課時間</p>
-                      <p class="fw-bold">
-                        <time datetime="2023-07-21T11:00"
-                          >2023/09/10(週日) 08:00</time
-                        >-<time datetime="2023-07-21T11:00">08:50</time>
-                      </p>
+                      <p class="fw-bold" id="dateTime"></p>
                     </div>
                     <button
                       type="button"
@@ -732,7 +1044,7 @@
                     class="btn btn-gray-200"
                     data-bs-dismiss="modal"
                   >
-                    取消預約
+                    關閉
                   </button>
                 </div>
               </div>
@@ -749,41 +1061,7 @@
           <div class="row">
             <div class="col-12 col-md-4 offset-md-1">
               <h3 class="mb-4">教師可預約時間</h3>
-              <ul class="d-flex flex-column g-0">
-                <li class="book-card active">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" />
-                  <div class="d-flex flex-column">
-                    <h4>從零開始成為切版大師</h4>
-                    <p>麥克先生</p>
-                    <div class="d-flex gap-2">
-                      <p>未預約: 3</p>
-                      <p>請求中: 1</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="book-card">
-                  <img src="/project-code/assets/Rectangle 8-2a3cf305.png" alt="" />
-                  <div class="d-flex flex-column">
-                    <h4>一起打造你的前端職涯</h4>
-                    <p>榮哥</p>
-                    <div class="d-flex gap-2">
-                      <p>未預約: 4</p>
-                      <p>請求中: 1</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="book-card">
-                  <img src="/project-code/assets/Rectangle 9-7f0cfb4e.png" alt="" />
-                  <div class="d-flex flex-column">
-                    <h4>Python 全攻略</h4>
-                    <p>艾莉絲</p>
-                    <div class="d-flex gap-2">
-                      <p>未預約: 1</p>
-                      <p>請求中: 1</p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <ul class="d-flex flex-column g-0" id="appointment_list"></ul>
             </div>
             <div class="col-12 col-md-5 offset-md-1">
               <!-- calendar -->
@@ -840,29 +1118,38 @@
               <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
                 <ul class="d-flex justify-content-between gap-2">
                   <!-- 凌晨 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">上午</h4>
-                    <ul>
-                      <li class="btn-time active">08:00</li>
+                    <ul id="morning">
+                      <!-- <li class="btn-time active">08:00</li>
                       <li class="btn-time">9:00</li>
-                      <li class="btn-time">10:00</li>
+                      <li class="btn-time">10:00</li> -->
                     </ul>
                   </li>
                   <!-- 早上 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">下午</h4>
-                    <ul>
-                      <li class="btn-time">13:00</li>
-                      <li class="btn-time">14:00</li>
+                    <ul id="afternoon">
+                      <!-- <li class="btn-time">13:00</li>
+                      <li class="btn-time">14:00</li> -->
                     </ul>
                   </li>
                   <!-- 晚上 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">晚上</h4>
-                    <ul>
-                      <li class="btn-time disable">22:00</li>
+                    <ul id="evening">
+                      <!-- <li class="btn-time disable">22:00</li>
                       <li class="btn-time disable">22:30</li>
-                      <li class="btn-time">23:00</li>
+                      <li class="btn-time">23:00</li> -->
                     </ul>
                   </li>
                 </ul>
@@ -910,11 +1197,11 @@
                   <div class="modal-body">
                     <p class="mb-2 fw-bold">選擇您想要學習的課程內容</p>
                     <ul class="d-flex flex-wrap gap-2">
-                      <li class="btn-time">入門教學</li>
-                      <li class="btn-time">技術討論</li>
-                      <li class="btn-time">專題討論</li>
-                      <li class="btn-time">程式檢視</li>
-                      <li class="btn-time">學習建議</li>
+                      <li class="btn-time2">入門教學</li>
+                      <li class="btn-time2">技術討論</li>
+                      <li class="btn-time2">專題討論</li>
+                      <li class="btn-time2">程式檢視</li>
+                      <li class="btn-time2">學習建議</li>
                     </ul>
                   </div>
                   <div
@@ -940,7 +1227,8 @@
                       type="button"
                       class="btn btn-secondary2"
                       data-bs-toggle="modal"
-                      data-bs-target="#bookedModal2"
+                      id="attendSubmit"
+                      data-bs-dismiss="modal"
                     >
                       確認
                     </button>
@@ -948,7 +1236,7 @@
                 </div>
               </div>
             </div>
-            <div
+            <!-- <div
               class="modal fade"
               id="bookedModal2"
               tabindex="-1"
@@ -984,7 +1272,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- 課程管理 (Course Management) -->
@@ -994,365 +1282,10 @@
           role="tabpanel"
           aria-labelledby="nav-course-management-tab"
         >
-          <ul class="d-flex flex-column gap-4 align-items-center">
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
-                    <p>未預約: 3</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      從零開始成為切版大師
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate1-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save0"
-                        aria-expanded="false"
-                        aria-controls="save0"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <button
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  disabled
-                >
-                  等待確認中
-                </button>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save0"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save0"
-                  aria-expanded="false"
-                  aria-controls="save0"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="/project-code/assets/Rectangle 8-2a3cf305.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">榮哥</h3>
-                    <p>未預約: 4</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      一起打造你的前端職涯
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate2-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save1"
-                        aria-expanded="false"
-                        aria-controls="save1"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <a
-                  href="https://zoom.us/"
-                  target="_blank"
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  即將上課
-                </a>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save1"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save1"
-                  aria-expanded="false"
-                  aria-controls="save1"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">艾莉絲</h3>
-                    <p>未預約: 1</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      Python 全攻略
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate3-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save2"
-                        aria-expanded="false"
-                        aria-controls="save2"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <a
-                  href="https://zoom.us/"
-                  target="_blank"
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  即將上課
-                </a>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save2"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save2"
-                  aria-expanded="false"
-                  aria-controls="save2"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
-          </ul>
+          <ul
+            class="d-flex flex-column gap-4 align-items-center"
+            id="course-management"
+          ></ul>
           <div class="border p-4">
             <ul class="d-flex p-0 flex-column gap-2">
               <li>注意事項</li>
@@ -1369,6 +1302,90 @@
             </ul>
           </div>
         </div>
+        <div
+          class="modal fade"
+          id="checkModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content rounded-0">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                >
+                  <img
+                    class="w-75px"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
+                    alt="麥克先生"
+                    id="checkImg"
+                  />
+                  <div
+                    class="d-flex flex-column justify-content-between align-items-center"
+                  >
+                    <p>教師</p>
+                    <p class="fw-bold" id="checkTeacherName"></p>
+                  </div>
+                  <div
+                    class="d-flex flex-column justify-content-between align-items-center"
+                  >
+                    <p>課程項目</p>
+                    <p class="fw-bold" id="checkName"></p>
+                  </div>
+                  <div
+                    class="d-flex flex-column justify-content-between align-items-center"
+                  >
+                    <p>上課時間</p>
+                    <p class="fw-bold" id="checkDate"></p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary2 text-white"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#message-mike"
+                    aria-controls="message-mike"
+                    data-bs-dismiss="modal"
+                  >
+                    聯絡老師
+                  </button>
+                </div>
+                <div
+                  class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                >
+                  <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <a
+                  href="#"
+                  target="_blank"
+                  type="button"
+                  class="btn btn-secondary2"
+                  id="checkSubmit"
+                >
+                  確認
+                </a>
+                <button
+                  type="button"
+                  class="btn btn-gray-200"
+                  data-bs-dismiss="modal"
+                >
+                  取消
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- 我的評價 (My Reviews)-->
         <div class="tab-pane fade container" id="nav-course-review">
           <div class="row shadow p-3 p-md-4 d-flex">
@@ -1376,7 +1393,7 @@
               <div class="text-center">
                 <img
                   class="mb-2 mb-md-3 w-70px"
-                  src="/project-code/assets/alice-26beb67d.png"
+                  src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/alice.png"
                   alt="艾莉絲"
                 />
                 <h3 class="fs-7 fs-md-6 text-secondary2">艾莉絲</h3>
@@ -1488,8 +1505,8 @@
               <div class="text-center">
                 <img
                   class="mb-2 mb-md-3 w-70px"
-                  src="/project-code/assets/mike-3c4b76a2.png"
-                  alt="愾克先生"
+                  src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
+                  alt="麥克先生"
                 />
                 <h3 class="fs-7 fs-md-6 text-secondary2">麥克先生</h3>
               </div>
@@ -1597,7 +1614,7 @@
               <div class="text-center">
                 <img
                   class="mb-2 mb-md-3 w-70px"
-                  src="/project-code/assets/arong-b7b838fb.png"
+                  src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/arong.png"
                   alt="Aaron"
                 />
                 <h3 class="fs-7 fs-md-6 text-secondary2">榮哥</h3>
@@ -1727,170 +1744,26 @@
           aria-labelledby="nav-my-coupons-tab"
         >
           <!-- 優惠券 -->
-          <ul class="row row-cols-1 row-cols-lg-2 g-6">
-            <!-- 優惠券1 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
-                    <img
-                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        體驗價 - 從零開始成為切版大師
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        50 分鐘體驗課特價 $ 550
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-12-31">2023/12/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="./course_intro.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券2 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-primary p-4">
-                    <img
-                      src="/project-code/assets/logo-img-9afefee1.svg"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        課程 9 折
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        低消 $ 1,500 ，最高折抵 $ 3,000
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-10-31">2023/10/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券3 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
-                    <img
-                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        體驗價 - Python 全攻略
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        50 分鐘體驗課特價 $ 500
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-12-31">2023/12/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course_intro.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券4 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-primary p-4">
-                    <img
-                      src="/project-code/assets/logo-img-9afefee1.svg"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        課程 8 折
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        低消 $ 2,000 ，最高折抵 $ 3,000
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-10-31">2023/10/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
+          <ul class="row row-cols-1 row-cols-lg-2 g-6 js-couponGroup">
+            <p class="text-center fs-5">優惠券載入失敗</p>
           </ul>
+          <nav class="my-6 my-md-8" aria-label="Page navigation">
+            <ul
+              class="pagination pagination-lg justify-content-center gap-6 js-couponPagination"
+            >
+              <li class="page-item js-couponPageArrow d-none disabled">
+                <a class="page-link rounded-3" href="#" aria-label="Previous">
+                  <i class="fa-solid fa-angle-left"></i>
+                </a>
+              </li>
+              <li class="page-item js-couponPageArrow d-none">
+                <a class="page-link rounded-3" href="#" aria-label="Next">
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-
         <!-- 帳號設定 (Account Settings)-->
         <div
           class="tab-pane fade"
@@ -2119,7 +1992,6 @@
                     修改
                   </button>
                 </div>
-
                 <!-- 個人資料Modal -->
                 <div
                   class="modal fade"
@@ -2156,7 +2028,7 @@
                         >
                           <div class="col-12 d-flex align-items-center">
                             <img
-                              src="/project-code/assets/Ellipse 1 (2)-9cb89071.svg"
+                              src="https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/ellipse2.png"
                               alt="大頭貼"
                               class="w-100px h-100px rounded-circle object-fit-cover me-2 me-sm-6"
                             />
@@ -2274,7 +2146,7 @@
             </ul>
           </div>
         </div>
-        <!-- 我的關注 (My Followings)-->
+        <!-- 我的收藏 (My Followings)-->
         <div
           class="tab-pane fade"
           id="nav-my-following"
@@ -2282,305 +2154,16 @@
           aria-labelledby="nav-my-following-tab"
         >
           <!-- card -->
-          <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
-            <!-- card1 -->
-            <li class="col">
-              <div class="teacher-card position-relative">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">從零開始成為切版大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,100</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  帶領零基礎的平民老百姓，從最基礎的 HTML
-                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card2 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
-                    <p class="teacher-card-name">榮哥</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 8-2a3cf305.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card3 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Python 全攻略</h3>
-                    <p class="teacher-card-name">艾莉絲</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                  年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                  Python
-                  相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                  Python
-                  基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                  Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
-                  技能，以應對不同領域的挑戰。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card4 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">JavaScript 大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,200</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/mike-3c4b76a2.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook
-                  聊天機器人、Chrome
-                  Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card5 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">資料庫設計與管理</h3>
-                    <p class="teacher-card-name">Ken</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,300</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/ken-602c463d.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我是 Ken
-                  老師，在外商和台積電任職工程師多年，有豐富的資料庫設計經驗，熟悉正規化、索引策略、查詢優化、資料庫管理系統（DBMS）的選擇，以及資料安全等專業知識。無論你是初學者還是希望深化資料庫設計技能。我的目標是讓你在資料庫設計領域感到自信，並能夠在軟體系統開發時，成功應用所學的知識。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card6 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Java 從 0 到 Expert</h3>
-                    <p class="teacher-card-name">賽門</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,400</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/simon-57ec7107.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我的專業包括分析、設計和程式撰寫，並規劃執行軟體架構以及模組的設計。在軟體開發過程中，我非常注重測試、軟體的品質和穩定性，幫你揪出程式碼中的壞味道。有豐富的「Java
-                  實戰和教學經驗」，參與多項企業級系統專案開發，不管你是學生、菜鳥或是在職工程師，都可以帶走不少寶貴的建議。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-          </ul>
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6"
+            id="followList"
+          ></div>
+
           <!-- 頁碼 -->
           <nav class="my-6 my-md-8" aria-label="Page navigation example">
-            <ul class="pagination pagination-lg justify-content-center">
+            <ul
+              class="pagination pagination-lg justify-content-center followPagination"
+            >
               <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                   <i class="fa-solid fa-angle-left"></i>
@@ -2611,12 +2194,12 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
@@ -2686,140 +2269,31 @@
   </div>
 </div>
 
-    <!-- backtotop -->
+    <!-- 21backtotop -->
     <button
   type="button"
   class="rounded-circle text-light border-0 backtotopBtn z-1"
 >
-  <p class="fs-tiny">TOP</p>
+  <p class="fs-6"><i class="fa-solid fa-chevron-up"></i></p>
 </button>
 
-    <!-- jquery-ui -->
+    <!-- 套件 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
-    <!--  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <!-- 課程相關 -->
     
-
-    <!-- calender -->
+    
+    <!-- <script type="module" src="../assets/js/account_date.js"></script>
+    <script type="module" src="../assets/js/appointment.js"></script>
+    <script type="module" src="../assets/js/course_management.js"></script>
+    <script type="module" src="../assets/js/account.js"></script>
+    <script type="module" src="../assets/js/account_coupon.js"></script> -->
     <script>
-      const daysTag = document.querySelector(".days");
-      const currentDate = document.querySelector(".current-date");
-      const prevNextIcon = document.querySelectorAll(".icons span");
-
-      let currYear = new Date().getFullYear();
-      let currMonth = new Date().getMonth();
-
-      const months = [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月",
-      ];
-
-      const renderCalendar = () => {
-        const date = new Date(currYear, currMonth, 1);
-        let firstDayofMonth = date.getDay();
-        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-        let lastDayofMonth = new Date(
-          currYear,
-          currMonth,
-          lastDateofMonth
-        ).getDay();
-        let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-
-        let liTag = "";
-
-        for (let i = firstDayofMonth; i > 0; i--) {
-          liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-        }
-
-        for (let i = 1; i <= lastDateofMonth; i++) {
-          let isToday =
-            i === new Date().getDate() &&
-            currMonth === new Date().getMonth() &&
-            currYear === new Date().getFullYear()
-              ? "active"
-              : "";
-          liTag += `<li class="${isToday}">${i}</li>`;
-        }
-
-        for (let i = lastDayofMonth; i < 6; i++) {
-          liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-        }
-
-        currentDate.innerText = `${months[currMonth]} ${currYear}`;
-        daysTag.innerHTML = liTag;
-      };
-
-      renderCalendar();
-
-      prevNextIcon.forEach((icon) => {
-        icon.addEventListener("click", () => {
-          currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-          if (currMonth < 0 || currMonth > 11) {
-            currYear = icon.id === "prev" ? currYear - 1 : currYear + 1;
-            currMonth = currMonth < 0 ? 11 : 0;
-          }
-
-          renderCalendar();
-        });
-      });
-    </script>
-
-    <!-- account -->
-    <script>
-      //抓取按鈕
-      const changeBtn = document.querySelectorAll("#change");
-      const saveBtn = document.querySelectorAll("#saveBtn");
-      //抓取區塊
-      const btnBlock = document.querySelectorAll("#btnBlock");
-      //抓取時間欄
-      const date = document.querySelectorAll("#date");
-      const time = document.querySelectorAll("#time");
-
-      console.log(changeBtn);
-
-      //click觸發修改事件
-      changeBtn.forEach((item, index) => {
-        item.addEventListener("click", (e) => {
-          date[index].toggleAttribute("disabled");
-          time[index].toggleAttribute("disabled");
-          btnBlock[index].classList.toggle("hidden");
-          item.toggleAttribute("disabled");
-        });
-      });
-      saveBtn.forEach((item, index) => {
-        item.addEventListener("click", (e) => {
-          date[index].toggleAttribute("disabled");
-          time[index].toggleAttribute("disabled");
-          btnBlock[index].classList.toggle("hidden");
-          changeBtn[index].toggleAttribute("disabled");
-        });
-      });
-    </script>
-
-    <!-- datepicker -->
-    <script>
-      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
       $(function () {
-        $(".jq-appointmentDate").datepicker({
-          minDate: 0,
-          maxDate: "+1M +10D",
-          formatDate: "yy-mm-dd",
-        });
-      });
-      $(function () {
-        $(".jq-birthday").datepicker({
+        $('.jq-birthday').datepicker({
           changeMonth: true,
           changeYear: true,
         });

@@ -1,0 +1,1 @@
+function c(t){return parseInt(t.replace(/,/g,""))}function h(t){const r="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";let e="";const a=Math.floor(Math.random()*(r.length-10));e+=r.charAt(a);for(let n=1;n<t;n++){const o=Math.floor(Math.random()*r.length);e+=r.charAt(o)}return e}export{h as g,c as p};

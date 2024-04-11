@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
       rel="shortcut icon"
-      href="/project-code/assets/favicon-ee1e2dda.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
@@ -14,34 +14,40 @@
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-6f271a4d.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1008d22c.css">
+    <script type="module" crossorigin src="/project-code/assets/index-714f2810.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/main-64c8deac.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/swal-5831e0de.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/startCourse-2b1863b9.js">
+    <link rel="stylesheet" href="/project-code/assets/main-5543e1db.css">
   </head>
   <body class="position-relative">
+    <!-- 標頭 -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
   <div class="container">
     <h1 class="navbar-brand">
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+        data-bs-target="#loginModal"
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -93,18 +99,42 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./course.html">前端</a></li>
-                  <li><a href="./course.html">後端</a></li>
-                  <li><a href="./course.html">資料庫</a></li>
-                  <li><a href="./course.html">資安</a></li>
-                  <li><a href="./course.html">產品測試</a></li>
-                  <li><a href="./course.html">UI / UX</a></li>
-                  <li><a href="./course.html">開發維運</a></li>
-                  <li><a href="./course.html">行動應用</a></li>
-                  <li><a href="./course.html">AI</a></li>
-                  <li><a href="./course.html">遊戲開發</a></li>
-                  <li><a href="./course.html">程式入門</a></li>
-                  <li><a href="./course.html">職涯</a></li>
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -112,10 +142,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block "
+            class="nav-link pc d-none d-lg-block student-faq "
             aria-current="page"
-            href="./faq.html"
-            >常見問題</a
+            href="#"
+            >常見問答</a
           >
           <div
             class="accordion accordion-flush d-block d-lg-none"
@@ -131,7 +161,7 @@
                   aria-expanded="false"
                   aria-controls="faq"
                 >
-                  常見問題
+                  常見問答
                 </button>
               </h2>
               <div
@@ -140,8 +170,10 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./faq.html">學生常見問答</a></li>
-                  <li><a href="./faq.html">老師常見問答</a></li>
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -171,17 +203,23 @@
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
         <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+          data-bs-target="#loginModal"
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </a>
         <a
           href="./account.html"
           type="button"
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
+          登出
         </a>
         <a
           href="./register.html"
@@ -242,7 +280,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/mike-3c4b76a2.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -262,7 +300,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/arong-b7b838fb.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/arong.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -282,7 +320,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/alice-26beb67d.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/alice.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -320,7 +358,7 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="/project-code/assets/mike-3c4b76a2.png"
+        src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
         alt="mike"
       />
       <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
@@ -338,7 +376,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -350,7 +388,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -365,7 +403,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -388,6 +426,326 @@
   </div>
   <div id="editor"></div>
 </div>
+<!-- login modal -->
+<!-- Modal -->
+
+<!-- 跳轉提示 modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-4" id="staticBackdropLabel">貼心提醒</h1>
+        <button
+          type="button"
+          class="btn-close"
+          id="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body pt-0 fs-6">
+        <p>
+          欲購買與收藏課程，點此<a class="text-primary" href="./login.html"
+            >登入會員</a
+          >
+        </p>
+        <p><span id="timeBox">5</span> 秒後自動跳轉登入頁面</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 註冊登入 modal -->
+<!-- <div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-6">
+        <div class="text-center position-relative">
+          <img
+            class="mb-2 mb-md-3"
+            src="../assets/images/logo-img.svg"
+            alt="logo"
+          />
+          <button
+            type="button"
+            class="btn-close position-absolute end-0"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <ul
+          class="nav nav-pills mb-3 d-flex justify-content-evenly"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              註冊
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              登入
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="registerForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <div id="firebaseui-auth-container">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                    id="google-register2"
+                  >
+                    <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+                  </button>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmail2"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmail2">Email</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-1"
+                    id="floatingName2"
+                    placeholder="Username"
+                    required
+                  />
+                  <label for="floatingName2">姓名</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingTel2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingTel2">手機</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="sendCode2"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-1 d-none"
+                      aria-hidden="true"
+                      id="sendCodeSpinner2"
+                    ></span>
+                    <span role="status">發送驗證碼</span>
+                  </button>
+                </div>
+                <div
+                  class="form-floating mb-2 mb-md-4 d-none"
+                  id="inputVerifyCode2"
+                >
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingVerifyCode2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="verify-button2"
+                  >
+                    立即驗證
+                  </button>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPassword2"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPassword2">密碼</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    />
+                  </svg>
+                  大於8個字元，包含數字、大寫和小寫字母
+                </div>
+                <div
+                  class="form-floating d-flex align-items-center mb-2 mb-md-4"
+                >
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingCheckPassword"
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingCheckPassword">確認密碼</label>
+                </div>
+                <button
+                  id="registerBtn2"
+                  type="button"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3"
+                  ds-
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  加入會員
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="loginForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                  id="google-login"
+                >
+                  <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+                </button>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmailLogin"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmailLogin">Email</label>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPasswordLogin"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPasswordLogin">密碼</label>
+                </div>
+                <div
+                  id="passwordHelpBlock"
+                  class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-exclamation-circle me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                      />
+                    </svg>
+                    大於8個字元，包含數字、大寫和小寫字母
+                  </div>
+                  <div><a href="###">忘記密碼?</a></div>
+                </div>
+                <button
+                  type="button"
+                  id="loginButton"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  登入會員
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
     <!-- banner -->
     <div class="bg-gray-400 mt-16 mt-md-19">
       <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
@@ -405,13 +763,17 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
                 />
+                <i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
-                  class="btn btn-secondary2 btn-search"
+                  class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
                   id="button-addon2"
                 >
@@ -433,13 +795,16 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
-                />
+                /><i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
-                  class="btn btn-secondary2 btn-search"
+                  class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
                   id="button-addon2"
                 >
@@ -461,13 +826,16 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
-                />
+                /><i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
-                  class="btn btn-secondary2 btn-search"
+                  class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
                   id="button-addon2"
                 >
@@ -502,267 +870,15 @@
           href="./course.html"
           type="button"
           class="btn btn-text pe-2 fw-medium"
+          id="redirectPopular"
         >
           查看更多
         </a>
       </div>
       <!-- 輪播 -->
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up" data-aos-offset="200">
         <div class="swiper recommendSwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">從零開始成為切版大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,100</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  帶領零基礎的平民老百姓，從最基礎的 HTML
-                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
-                    <p class="teacher-card-name">榮哥</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 8-2a3cf305.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Python 全攻略</h3>
-                    <p class="teacher-card-name">艾莉絲</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                  年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                  Python
-                  相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                  Python
-                  基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                  Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
-                  技能，以應對不同領域的挑戰。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">JavaScript 大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,200</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/mike-3c4b76a2.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook
-                  聊天機器人、Chrome
-                  Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">資料庫設計與管理</h3>
-                    <p class="teacher-card-name">Ken</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,300</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/ken-602c463d.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我是 Ken
-                  老師，在外商和台積電任職工程師多年，有豐富的資料庫設計經驗，熟悉正規化、索引策略、查詢優化、資料庫管理系統（DBMS）的選擇，以及資料安全等專業知識。無論你是初學者還是希望深化資料庫設計技能。我的目標是讓你在資料庫設計領域感到自信，並能夠在軟體系統開發時，成功應用所學的知識。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="teacher-card">
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Java 從 0 到 Expert</h3>
-                    <p class="teacher-card-name">賽門</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,400</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/simon-57ec7107.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我的專業包括分析、設計和程式撰寫，並規劃執行軟體架構以及模組的設計。在軟體開發過程中，我非常注重測試、軟體的品質和穩定性，幫你揪出程式碼中的壞味道。有豐富的「Java
-                  實戰和教學經驗」，參與多項企業級系統專案開發，不管你是學生、菜鳥或是在職工程師，都可以帶走不少寶貴的建議。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </div>
-          </div>
+          <div class="swiper-wrapper recommend-swiper"></div>
         </div>
         <!-- 輪播按鈕 -->
         <div
@@ -798,6 +914,7 @@
           <div
             class="col-12 col-md-3 d-flex flex-column align-items-start"
             data-aos="fade-right"
+            data-aos-duration="900"
           >
             <h3
               class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
@@ -810,117 +927,146 @@
             </h2>
             <img
               class="treasure d-none d-md-block align-self-center"
-              src="/project-code/assets/treasure-418b7d15.png"
+              src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/category/treasure.png"
               alt="藏寶圖"
+              id="treasureImg1"
             />
           </div>
-          <ul class="col-12 col-md-8 mb-md-0">
-            <div class="row g-3 g-sm-4 g-md-6">
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+          <div class="col-12 col-md-8 mb-md-0">
+            <ul class="row g-3 g-sm-4 g-md-6">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="frontend">
+                <a type="button" class="h-100 category-button">
                   <h4>前端</h4>
                   <img
-                    src="/project-code/assets/frontend-4134f215.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/frontend.svg"
                     alt="前端"
+                    id="frontendImg"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="backend">
+                <a type="button" class="h-100 category-button">
                   <h4>後端</h4>
-                  <img src="/project-code/assets/backend-6df6e72c.svg" alt="後端" />
+                  <img
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/backend.svg"
+                    alt="後端"
+                    id="backendUrl"
+                  />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="database">
+                <a type="button" class="h-100 category-button">
                   <h4>資料庫</h4>
                   <img
-                    src="/project-code/assets/database-18cac984.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/database.svg"
                     alt="資料庫"
+                    id="databaseUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="security">
+                <a type="button" class="h-100 category-button">
                   <h4>資安</h4>
                   <img
-                    src="/project-code/assets/security-9e7e4b0b.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/security.svg"
                     alt="資安"
+                    id="securityUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li
+                class="col-6 col-sm-4 col-lg-3 cate-item"
+                name="productTesting"
+              >
+                <a type="button" class="h-100 category-button">
                   <h4>產品測試</h4>
                   <img
-                    src="/project-code/assets/testing-94ffe118.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/testing.svg"
                     alt="產品測試"
+                    id="testingUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="UIUX">
+                <a type="button" class="h-100 category-button">
                   <h4>UI / UX</h4>
                   <img
-                    src="/project-code/assets/UI-UX-b15c7273.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/UI-UX.svg"
                     alt="UI / UX"
+                    id="UIUXUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="DevOps">
+                <a type="button" class="h-100 category-button">
                   <h4>開發維運</h4>
                   <img
-                    src="/project-code/assets/DevOps-adceebe7.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/DevOps.svg"
                     alt="開發維運"
+                    id="devOpsUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="mobileApp">
+                <a type="button" class="h-100 category-button">
                   <h4>行動應用</h4>
                   <img
-                    src="/project-code/assets/mobile-6d6099f3.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/mobile.svg"
                     alt="行動應用"
+                    id="mobileUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="AI">
+                <a type="button" class="h-100 category-button">
                   <h4>AI</h4>
-                  <img src="/project-code/assets/AI-f960d585.svg" alt="AI" />
+                  <img
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/category/AI.svg"
+                    alt="AI"
+                    id="AIUrl"
+                  />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li
+                class="col-6 col-sm-4 col-lg-3 cate-item"
+                name="GameDevelopment"
+              >
+                <a type="button" class="h-100 category-button">
                   <h4>遊戲開發</h4>
                   <img
-                    src="/project-code/assets/game-6cf1b467.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/game.svg"
                     alt="遊戲開發"
+                    id="gameUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="levelEasy">
+                <a type="button" class="h-100 category-button">
                   <h4>程式入門</h4>
                   <img
-                    src="/project-code/assets/basic-a112429a.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/basic.svg"
                     alt="程式入門"
+                    id="basicUrl"
                   />
                 </a>
               </li>
-              <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="./course.html">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item" name="career">
+                <a type="button" class="h-100 category-button">
                   <h4>職涯</h4>
-                  <img src="/project-code/assets/career-94d9ad84.svg" alt="職涯" />
+                  <img
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/category/career.svg"
+                    alt="職涯"
+                    id="careerUrl"
+                  />
                 </a>
               </li>
-            </div>
-          </ul>
+            </ul>
+          </div>
           <img
             class="treasure d-block d-md-none mx-auto"
-            src="/project-code/assets/treasure-418b7d15.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/category/treasure.png"
             alt="藏寶圖"
+            id="treasureImg2"
           />
         </div>
       </div>
@@ -1018,162 +1164,7 @@
           <div
             class="col-md-6 col-lg-8 order-2 order-md-1 swiper reviewsSwiper d-flex flex-column pb-10 pt-md-20 pb-md-17"
           >
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div
-                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
-                >
-                  <div class="d-flex justify-content-between flex-column gap-4">
-                    <img
-                      class="w-40px h-40px"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
-                      alt="逗號"
-                    />
-                    <p>
-                      麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
-                      9 個月後找到工作~
-                    </p>
-                  </div>
-                  <div class="d-flex">
-                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
-                      <ul class="d-flex gap-1 text-primary mb-0">
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                      </ul>
-                      <p class="fs-6">
-                        Cookie<span class="ms-1 fs-tiny text-gray-300"
-                          >學生</span
-                        >
-                      </p>
-                    </div>
-                    <img
-                      class="object-fit-cover rounded-circle w-60px h-60px"
-                      src="/project-code/assets/cookie-49972208.png"
-                      alt="貓咪"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
-                >
-                  <div class="d-flex justify-content-between flex-column gap-4">
-                    <img
-                      class="w-40px h-40px"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
-                      alt="逗號"
-                    />
-                    <p>
-                      老師非常專業，在課程中教了很多技巧，也陪我演練非常多次。讓我在技術面試中表現出色，拿到超乎我預期的
-                      offer。這個課程為我的前端職業生涯奠定了堅實的基礎，我強烈推薦給所有想要在前端領域取得成功的人。
-                    </p>
-                  </div>
-                  <div class="d-flex">
-                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
-                      <ul class="d-flex gap-1 text-primary mb-0">
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                      </ul>
-                      <p class="fs-6">
-                        貓咪<span class="ms-1 fs-tiny text-gray-300"
-                          >前端工程師</span
-                        >
-                      </p>
-                    </div>
-                    <img
-                      class="object-fit-cover rounded-circle w-60px h-60px"
-                      src="/project-code/assets/cat-b1126bdc.png"
-                      alt="貓咪"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
-                >
-                  <div class="d-flex justify-content-between flex-column gap-4">
-                    <img
-                      class="w-40px h-40px"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
-                      alt="逗號"
-                    />
-                    <p>
-                      這位老師簡直是 Python
-                      學習的明燈！我以前是個初學者，但現在我可以自信地處理各種
-                      Python
-                      專案。上課深入淺出，實用性強，我覺得自己的技能水平有了巨大的進步。強烈推薦給所有想要掌握
-                      Python 的人！
-                    </p>
-                  </div>
-                  <div class="d-flex">
-                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
-                      <ul class="d-flex gap-1 text-primary mb-0">
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                      </ul>
-                      <p class="fs-6">
-                        oliviaLin<span class="ms-1 fs-tiny text-gray-300"
-                          >學生</span
-                        >
-                      </p>
-                    </div>
-                    <img
-                      class="object-fit-cover rounded-circle w-60px h-60px"
-                      src="/project-code/assets/olivia-02d80b7d.png"
-                      alt="貓咪"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div
-                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
-                >
-                  <div class="d-flex justify-content-between flex-column gap-4">
-                    <img
-                      class="w-40px h-40px"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
-                      alt="逗號"
-                    />
-                    <p>
-                      這門課程不僅幫助我建立了資料庫設計技能，還讓我對這個領域充滿信心。無論你是為了未來的職業生涯，還是出於純粹的學習興趣，這位老師的資料庫設計與管理都是一個絕佳的選擇。謝謝您，老師，為我提供如此寶貴的學習經歷！
-                    </p>
-                  </div>
-                  <div class="d-flex">
-                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
-                      <ul class="d-flex gap-1 text-primary mb-0">
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                        <li><i class="fa-solid fa-star"></i></li>
-                      </ul>
-                      <p class="fs-6">
-                        monkeyfinger<span class="ms-1 fs-tiny text-gray-300"
-                          >後端工程師</span
-                        >
-                      </p>
-                    </div>
-                    <img
-                      class="object-fit-cover rounded-circle w-60px h-60px"
-                      src="/project-code/assets/monkey-2461b02b.png"
-                      alt="貓咪"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="swiper-wrapper reviews-swiper"></div>
             <div
               class="reviewsSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
             >
@@ -1199,6 +1190,7 @@
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
             data-aos="fade-left"
+            data-aos-anchor-placement="top-center"
           >
             <div
               class="d-flex flex-column align-items-start justify-content-between mb-22 mb-md-0"
@@ -1234,12 +1226,12 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
@@ -1314,23 +1306,23 @@
   type="button"
   class="rounded-circle text-light border-0 backtotopBtn z-1"
 >
-  <p class="fs-tiny">TOP</p>
+  <p class="fs-6"><i class="fa-solid fa-chevron-up"></i></p>
 </button>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       AOS.init();
 
-      // You can also pass an optional settings object
-      // below listed default settings
       AOS.init({
         // Global settings:
         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-        startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-        initClassName: "aos-init", // class applied after initialization
-        animatedClassName: "aos-animate", // class applied on animation
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
         useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
         disableMutationObserver: false, // disables automatic mutations' detections (advanced)
         debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
@@ -1340,12 +1332,14 @@
         offset: 120, // offset (in px) from the original trigger point
         delay: 0, // values from 0 to 3000, with step 50ms
         duration: 700, // values from 0 to 3000, with step 50ms
-        easing: "ease", // default easing for AOS animations
+        easing: 'ease', // default easing for AOS animations
         once: false, // whether animation should happen only once - while scrolling down
         mirror: false, // whether elements should animate out while scrolling past them
-        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+        anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
       });
     </script>
+
+    
     
   </body>
 </html>

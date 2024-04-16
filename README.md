@@ -101,11 +101,6 @@
   - 我能夠看到常見問答 - 阿榮
  
 ## 畫面
-![課程篩選](https://github.com/JiaYu0220/project-code/assets/134919211/a383550a-805f-4399-bdb1-a0eb55eb85fe)
-![優惠券](https://github.com/JiaYu0220/project-code/assets/134919211/04d9c7b9-5355-4154-928e-ea7f00127706)
-![購物車優惠券](https://github.com/JiaYu0220/project-code/assets/134919211/0b22d366-120c-4fd7-bfcf-4456f8d26064)
-![購物車預約](https://github.com/JiaYu0220/project-code/assets/134919211/d697f789-87dd-4355-a762-1303ec226a5b)
-
 
 <table width="100%">
   <tr>

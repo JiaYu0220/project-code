@@ -14,6 +14,7 @@ const right = document.querySelector('#NextWeek');
 //modal資訊
 const courseTeacherName = document.querySelector('#courseTeacherName');
 const courseName = document.querySelector('#courseName');
+const courseImg = document.querySelector('#courseImg');
 const dateTime = document.querySelector('#dateTime');
 //資料取得完畢並且初始化
 function init() {
@@ -52,14 +53,14 @@ function updateData() {
   const viewCourse = document.querySelectorAll('#viewCourse');
   viewCourse.forEach((item) => {
     let courseId = item.getAttribute('data-course-id'); //取得課程ID
-    item.addEventListener('click', () => {
-      getCourse(courseId);
+    item.addEventListener('click', (e) => {
+      getCourse(courseId, e.target.textContent);
     });
   });
   function findMatchData(dataNum) {
     return data.attendTime.filter((item) => item.date === dataNum);
   }
-  function getCourse(id) {
+  function getCourse(id, time) {
     let courseData = [];
     axios
       .get(`${_url}/courses/${id.toString()}?_expand=teacher`)
@@ -67,7 +68,8 @@ function updateData() {
         courseData = response.data; //取得課程資訊
         courseTeacherName.textContent = courseData.teacher.name;
         courseName.textContent = courseData.name;
-        dateTime.innerHTML = ``;
+        courseImg.setAttribute('src', courseData.teacher.avatar); //頭貼
+        dateTime.innerHTML = time;
       });
   }
 }

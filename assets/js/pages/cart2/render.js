@@ -130,7 +130,7 @@ function updateRemainNum() {
   // 選取剩餘堂數
   const remainNum =
     appointmentList.nextElementSibling.querySelector('.js-remainNum');
-  remainNum.innerText = `剩餘 ${
+  remainNum.textContent = `剩餘 ${
     appointCarts[cartIndex].quantity - appointCarts[cartIndex].appointmentNum
   } 堂`;
 }

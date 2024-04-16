@@ -73,7 +73,6 @@ async function getCoursesData({
     currentPageCourses.forEach((item, index) => {
       item.comment = responses[index].data;
     });
-    // console.log("currentPageCourses", currentPageCourses);
 
     isLoading = false;
     renderCourses();

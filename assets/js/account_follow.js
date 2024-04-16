@@ -1,5 +1,7 @@
 import { userId, isLogin, currentURL } from '../../utils/config';
 import { handleClickStartCourseBtn } from '../course/startCourse';
+import { showAlertSwal } from '../../utils/swal';
+
 import axios from 'axios';
 
 // 我的收藏
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         renderFollowPagination();
       }
     } catch (error) {
-      console.log('錯誤', error);
+      showAlertSwal('發生錯誤，請稍後再試');
     }
   }
   fetchData();
@@ -158,8 +160,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     prevButton.addEventListener('click', function () {
       if (pageId > 1) {
         pageId--;
-        // console.log("點擊上一頁後的 pageId", pageId);
-
         renderFollowPagination();
         fetchData();
       }
@@ -168,8 +168,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     nextButton.addEventListener('click', function () {
       if (followTotalPages > pageId) {
         pageId++;
-        // console.log("點擊下一頁後的 pageId", pageId);
-
         renderFollowPagination();
         fetchData();
       }
@@ -199,8 +197,6 @@ document.addEventListener('DOMContentLoaded', async function () {
   // 取消收藏
   async function unFollow(e) {
     let buttonId = e.target.dataset.buttonid;
-    console.log('buttonId', buttonId);
-
     let editfollowList = followArray.filter((item) => item != buttonId);
 
     Swal.fire({
@@ -226,7 +222,6 @@ document.addEventListener('DOMContentLoaded', async function () {
           .then(async (res) => {
             // 重新取得數據
             await fetchData();
-            console.log(courseData);
 
             if (courseData.length == 0) {
               pageId--;

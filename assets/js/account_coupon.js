@@ -1,4 +1,5 @@
 import { userId } from '../../utils/config';
+import { showAlertSwal } from '../../utils/swal';
 import axios from 'axios';
 
 const couponPageArrow = document.querySelectorAll('.js-couponPageArrow');
@@ -27,7 +28,7 @@ async function checkDueDate() {
         );
         getCoupons();
       } catch (error) {
-        console.log('checkDueDate', error);
+        showAlertSwal('發生錯誤，請稍後再試');
       }
     } else {
       renderCoupons();
@@ -59,13 +60,12 @@ async function getCoupons() {
       // 計算頁數
       const myCouponsNum = parseInt(res.headers.get('X-Total-Count'));
       couponLastPage = Math.ceil(myCouponsNum / 6);
-      //   console.log("myCoupons", myCoupons);
       checkDueDate();
     } else {
       renderCoupons();
     }
   } catch (error) {
-    console.log('getCoupons', error);
+    showAlertSwal('發生錯誤，請稍後再試');
   }
 }
 

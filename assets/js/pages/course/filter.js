@@ -4,11 +4,11 @@ import {
   data,
   getCoursesData,
   handleRatingNum,
-} from "./api.js";
+} from './api.js';
 
 //選取 控制篩選收合按鈕的數字 (collapse、offcanvas各一)
 const selectedFiltersNumHtml = document.querySelectorAll(
-  ".js-selectedFiltersNum"
+  '.js-selectedFiltersNum'
 );
 let selectedFiltersNum = 0;
 //選取 input
@@ -16,11 +16,11 @@ const filterRatings = document.querySelectorAll('input[name="filterStar"]');
 const minPrice = document.querySelector("input[name='minPrice']");
 const maxPrice = document.querySelector("input[name='maxPrice']");
 //選取 整個篩選課程分類(checkbox)的父層
-let accordionFilter = document.querySelector("#accordionFilter");
+let accordionFilter = document.querySelector('#accordionFilter');
 //選取 篩選課程分類小項
-const categories = document.querySelectorAll(".js-category");
+const categories = document.querySelectorAll('.js-category');
 //選取 清除篩選按鈕
-const delFilterBtn = document.querySelector(".js-delFilterBtn");
+const delFilterBtn = document.querySelector('.js-delFilterBtn');
 //選取 確認篩選按鈕
 // const filterBtn = document.querySelector(".js-filterBtn");
 
@@ -52,7 +52,7 @@ function runRatingFilter() {
 /*** 課程評等篩選功能 ***/
 filterRatings.forEach((rate) => {
   /* 找到選取的評等 */
-  rate.addEventListener("change", (e) => {
+  rate.addEventListener('change', (e) => {
     handleRatingFilter(e.target.id);
   });
 });
@@ -74,9 +74,9 @@ function handleRatingFilter(rate) {
 
 /*** 價格 篩選功能 ***/
 /* 最低價格 */
-minPrice.addEventListener("change", handlePriceFilter);
+minPrice.addEventListener('change', handlePriceFilter);
 /* 最高價格 */
-maxPrice.addEventListener("change", handlePriceFilter);
+maxPrice.addEventListener('change', handlePriceFilter);
 
 function handlePriceFilter() {
   const priceInputValue = parseInt(this.value.trim());
@@ -119,25 +119,25 @@ function handlePriceFilter() {
 
 /***課程分類篩選功能***/
 
-const cateItemName = sessionStorage.getItem("cateItemName");
+const cateItemName = sessionStorage.getItem('cateItemName');
 
 if (cateItemName) {
-  document.addEventListener("DOMContentLoaded", cate);
+  document.addEventListener('DOMContentLoaded', cate);
 }
 
 function cate() {
   const target = document.querySelector(`#${cateItemName}`);
   target.checked = true;
-  handleCheckStatus(target)
-  sessionStorage.removeItem("cateItemName");
+  handleCheckStatus(target);
+  sessionStorage.removeItem('cateItemName');
 }
 
-accordionFilter.addEventListener("change", (e) => handleCheckStatus(e.target));
+accordionFilter.addEventListener('change', (e) => handleCheckStatus(e.target));
 
 /* 判斷點擊的 checkbox 是大項還是小項 */
-function handleCheckStatus(target){
+function handleCheckStatus(target) {
   /* 當target是課程主題大項checkbox */
-  if (target.classList.contains("js-selectAll")) {
+  if (target.classList.contains('js-selectAll')) {
     const isCheck = target.checked;
     // 選取 大項內所有的小項
     const relatedCheckboxes = document.querySelectorAll(
@@ -152,14 +152,14 @@ function handleCheckStatus(target){
     }
 
     /* 當target是課程分類小項checkbox */
-  } else if ((target.type = "checkbox")) {
+  } else if ((target.type = 'checkbox')) {
     // 更新父層 checkbox 狀態
     const parentCheckbox = target
-      .closest(".accordion-item")
-      .querySelector(".js-selectAll");
+      .closest('.accordion-item')
+      .querySelector('.js-selectAll');
     const relatedCheckboxes = target
-      .closest(".accordion-body")
-      .querySelectorAll(".js-category");
+      .closest('.accordion-body')
+      .querySelectorAll('.js-category');
     updateParentCheckbox(parentCheckbox, relatedCheckboxes);
   }
 
@@ -171,29 +171,27 @@ function handleCheckStatus(target){
 }
 
 function handleCategoryFilters() {
-  data.filters = "";
-  let apiFilter = ""; //課程分類
-  let apiLevel = ""; //課程程度
+  data.filters = '';
+  let apiFilter = ''; //課程分類
+  let apiLevel = ''; //課程程度
 
   /* 課程分類篩選功能 */
   // 全部小項檢查有打勾的加入篩選
   categories.forEach((item) => {
     if (item.checked) {
       // 打勾的是課程程度
-      if (item.value === "入門" || item.value === "進階") {
+      if (item.value === '入門' || item.value === '進階') {
         apiLevel = `&level_like=${item.value}`;
         data.filters += apiLevel;
       } else {
         // 打勾的是課程分類
         if (isEnglish(item.value)) {
           apiFilter = `&categories_like=\\b${item.value}\\b`;
-          if (item.value === "C") {
-            apiFilter += "(?!%23)"; //確保不匹配 C# (# 要轉成 %23)
+          if (item.value === 'C') {
+            apiFilter += '(?!%23)'; //確保不匹配 C# (# 要轉成 %23)
           }
         } else {
           apiFilter = `&categories_like=${specialCharactersToURL(item.value)}`; //value是中文時，加正則表達式會找不到 // 特殊符號要轉成 url 編碼
-          console.log(specialCharactersToURL(item.value));
-          console.dir(item);
         }
 
         data.filters += apiFilter;
@@ -254,7 +252,7 @@ function countSelectedFilters() {
 /* 評論篩選項目筆數 */
 function countFilterRatingNum(allCourses) {
   // 選取 評等的比數
-  const filterRatingNum = document.querySelectorAll(".js-filterRatingNum");
+  const filterRatingNum = document.querySelectorAll('.js-filterRatingNum');
 
   const ratingLength = filterRatingNum.length;
 
@@ -286,7 +284,7 @@ function countFilterRatingNum(allCourses) {
 /* 課程分類小項篩選項目筆數 */
 function countFilterCategoryNum(allCourses) {
   // 選取課程分類小項的筆數
-  const categoriesNum = document.querySelectorAll("[data-category]");
+  const categoriesNum = document.querySelectorAll('[data-category]');
 
   const categoryLength = categoriesNum.length;
 
@@ -296,9 +294,6 @@ function countFilterCategoryNum(allCourses) {
   for (let i = 0; i < categoriesNum.length; i++) {
     let dataCategory = categoriesNum[i].dataset.category;
     categoryNumData[dataCategory] = 0;
-    if (categoryNumData[dataCategory] === NaN) {
-      // console.log("篩選項目有打錯，出現NaN");
-    }
   }
 
   allCourses.forEach((course) => {
@@ -318,17 +313,17 @@ function countFilterCategoryNum(allCourses) {
 }
 
 /*** 清除篩選 ***/
-delFilterBtn.addEventListener("click", initFilters);
+delFilterBtn.addEventListener('click', initFilters);
 function initFilters() {
   //清空價格篩選
-  minPrice.value = "";
-  maxPrice.value = "";
+  minPrice.value = '';
+  maxPrice.value = '';
 
   // 評等恢復到篩選全部
   filterRatings[0].checked = true;
 
   // 取消課程類別checkbox勾選
-  const checkboxes = document.querySelectorAll(".js-selectAll, .js-category");
+  const checkboxes = document.querySelectorAll('.js-selectAll, .js-category');
   checkboxes.forEach((checkbox) => (checkbox.checked = false));
 
   // data 中和篩選相關設定恢復預設
@@ -336,7 +331,7 @@ function initFilters() {
   data.rate_lte = 5;
   data.price_gte = minPriceDefault;
   data.price_lte = maxPriceDefault;
-  data.filters = "";
+  data.filters = '';
 
   zeroSelectedFilters();
   runFilter();
@@ -354,7 +349,7 @@ function toCoursesTop() {
   window.scrollTo({
     top: 350,
     left: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 }
 

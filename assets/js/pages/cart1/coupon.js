@@ -79,8 +79,6 @@ async function getCoupons() {
 
     // 確認有無過期
     checkDueDate();
-
-    // console.log("cartCoupons", cartCoupons);
   } catch (error) {
     showAlertSwal('發生錯誤，請稍後再試');
   }

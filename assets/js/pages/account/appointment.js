@@ -1,5 +1,6 @@
 import { userId } from '../../utils/config';
 import { generateRandomCode } from '../../utils/helper';
+import { showAlertSwal } from '../../utils/swal';
 import axios from 'axios';
 
 const daysTag = document.querySelector('.days');
@@ -108,7 +109,6 @@ function updateTeacherList() {
         item.day = item.date;
         delete item.date;
       });
-      // console.log(manager_data);
       mergeData(appointment_data);
       mergeManageData(manager_data);
       function mergeData(data) {
@@ -130,7 +130,6 @@ function updateTeacherList() {
                 return item1;
               }
             });
-            // console.log(arr);
             arr.forEach((item) => {
               str += `<li class="book-card" data-courseId="${item.id}">
                 <img src="${item.teacher.avatar}" alt="" />
@@ -166,7 +165,7 @@ function updateTeacherList() {
             });
           })
           .catch((err) => {
-            console.error(err);
+            showAlertSwal('發生錯誤，請稍後再試');
           });
       }
       function mergeManageData(data) {
@@ -188,10 +187,8 @@ function updateTeacherList() {
                 return item1;
               }
             });
-            //console.log(arr);
             arr.forEach((item, idx) => {
               //課程管理列表
-              //console.log(item.teacher);
               if (item.teacher === undefined) {
                 return;
               }
@@ -332,28 +329,18 @@ function updateTeacherList() {
                   formatDate: 'yy-mm-dd',
                   showButtonPanel: true,
                   onSelect: function () {
-                    // console.log(
-                    //   vm.getAttribute("data-uid"),
-                    //   vm.getAttribute("data-courseId")
-                    // );
                     let str = '';
                     const getSelect = document.querySelectorAll(
                       `.${vm.getAttribute('data-uid')}`
                     )[1];
-                    //console.log(getSelect);
                     const selectCourse = [...objects][
                       vm.getAttribute('data-courseId') - 1
                     ];
-                    // console.log(selectCourse.teacher);
-                    // console.log(selectCourse.teacher.openTime);
-                    // console.log(vm.value.slice(5));
-                    // console.log(selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5)));
                     const courseDay = {
                       ...selectCourse.teacher.openTime.find(
                         (day) => day.date === vm.value
                       ),
                     };
-                    console.log(courseDay);
                     if (Object.keys(courseDay).length === 0) {
                       getSelect.innerHTML = ``;
                       return 0;
@@ -361,7 +348,6 @@ function updateTeacherList() {
                       const filterTime = courseDay.time.filter(
                         (time) => !courseDay.useTime.includes(time)
                       );
-                      //console.log(filterTime);
                       filterTime.forEach((item) => {
                         str += `<option>${item}</option>`;
                       });
@@ -374,16 +360,12 @@ function updateTeacherList() {
 
             course_management.innerHTML = str;
             const change_btn = document.querySelectorAll('#change');
-            // console.log(change_btn);
             change_btn.forEach((btn) => {
               //按下修改時，當前日期以及時間可變為更改狀態。
               btn.addEventListener('click', (e) => {
-                // console.log(e.currentTarget.getAttribute('data-course'));
                 let click_change = e.currentTarget.getAttribute('data-course');
                 let str = `.${click_change}`;
                 const get2 = document.querySelectorAll(str);
-                // console.log(get2[0].value);
-                // console.log(get2[1].value);
                 get2.forEach((item) => {
                   item.toggleAttribute('disabled');
                 });
@@ -392,7 +374,6 @@ function updateTeacherList() {
                 if (!btn) {
                   btn = document.querySelector(`#check-${click_change}`);
                 }
-                // console.log(btn);
 
                 //變更為儲存
                 btn.setAttribute('id', `save-${click_change}`);
@@ -400,11 +381,7 @@ function updateTeacherList() {
                 btn.setAttribute('data-bs-target', '#checkModal');
                 btn.removeAttribute('disabled');
                 btn.textContent = '儲存';
-                //
-                // console.log(get2[0]);
-                get2[0].addEventListener('input', (e) => {
-                  // console.log(e.currentTarget.value);
-                });
+
                 //1.click儲存時，儲存現有資料。
                 //2.並且改變確認鍵上的資料。
                 btn.addEventListener('click', () => {
@@ -437,7 +414,6 @@ function updateTeacherList() {
                         .get(`${_url}/user_courses/${userId}`)
                         .then((res) => {
                           const oldData = [...res.data.attendTime];
-                          // console.log(oldData);
                           let findIndex = 0;
                           const getCurrentData = oldData.find((item, idx) => {
                             if (item.uid === click_change) {
@@ -446,19 +422,16 @@ function updateTeacherList() {
                             }
                             return false;
                           });
-                          // console.log(getCurrentData,findIndex);
                           oldData.splice(findIndex, 1);
                           getCurrentData.date = get2[0].value;
                           getCurrentData.time = get2[1].value;
                           getCurrentData.isCheck = false;
-                          // console.log(getCurrentData);
                           oldData.push(getCurrentData);
                           axios
                             .patch(`${_url}/user_courses/${userId}`, {
                               attendTime: [...oldData],
                             })
                             .then((response) => {
-                              // console.log("add success");
                               Swal.fire({
                                 icon: 'success',
                                 title: '預約成功',
@@ -468,7 +441,7 @@ function updateTeacherList() {
                               updateTeacherList();
                             })
                             .catch((error) => {
-                              // console.error("Error adding post:", error);
+                              showAlertSwal('發生錯誤，請稍後再試');
                             });
                         });
                     }
@@ -483,11 +456,9 @@ function updateTeacherList() {
                 e.preventDefault();
                 const delete_courseId =
                   e.currentTarget.getAttribute('data-course');
-                // console.log(delete_courseId);
                 const courseId = e.currentTarget.getAttribute('data-courseId');
                 axios.get(`${_url}/user_courses/${userId}`).then((res) => {
                   const oldData = [...res.data.attendTime];
-                  // console.log(oldData);
                   let findIndex = 0;
                   //確認是否有此資料
                   const getCurrentData = oldData.find((item, idx) => {
@@ -509,7 +480,6 @@ function updateTeacherList() {
                       const get2 = document.querySelectorAll(
                         `.${delete_courseId}`
                       );
-                      // console.log(get2);
                       //get2[0]日期
                       //get2[1]時間
                       axios.get(`${_url}/teachers/${teacherId}`).then((res) => {
@@ -525,11 +495,9 @@ function updateTeacherList() {
                           .patch(`${_url}/teachers/${teacherId}`, {
                             opentime: [...oldOpenTime],
                           })
-                          .then((response) => {
-                            // console.log("update success");
-                          })
+                          .then((response) => {})
                           .catch((error) => {
-                            // console.error("Error adding post:", error);
+                            showAlertSwal('發生錯誤，請稍後再試');
                           });
                       });
                     });
@@ -538,7 +506,6 @@ function updateTeacherList() {
                         attendTime: [...oldData],
                       })
                       .then((response) => {
-                        // console.log("delete success");
                         Swal.fire({
                           icon: 'success',
                           title: '取消預約成功',
@@ -548,7 +515,7 @@ function updateTeacherList() {
                         updateTeacherList();
                       })
                       .catch((error) => {
-                        // console.error("Error adding post:", error);
+                        showAlertSwal('發生錯誤，請稍後再試');
                       });
                   }
                 });
@@ -556,12 +523,12 @@ function updateTeacherList() {
             });
           })
           .catch((err) => {
-            // console.error(err);
+            showAlertSwal('發生錯誤，請稍後再試');
           });
       }
     })
     .catch((err) => {
-      // console.error(err);
+      showAlertSwal('發生錯誤，請稍後再試');
     });
 }
 updateTeacherList();
@@ -578,7 +545,6 @@ let evening_str = '';
 const attendSubmit = document.querySelector('#attendSubmit');
 let oldAttendTime = [];
 attendSubmit.addEventListener('click', (e) => {
-  //console.log(clickCourse,clickDay,userId,clickTime);
   postAttendCourse(clickCourse, clickDay, userId, clickTime);
 });
 //顯示教師當日開放時間
@@ -668,14 +634,12 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
     .get(`${_url}/user_courses/${userId}`)
     .then((response) => {
       oldAttendTime = [...response.data.attendTime];
-      //console.log(oldAttendTime);
       //update data to db
       axios
         .patch(`${_url}/user_courses/${userId}`, {
           attendTime: [...oldAttendTime, data],
         })
         .then((response) => {
-          // console.log("add success");
           Swal.fire({
             icon: 'success',
             title: '預約成功',
@@ -684,7 +648,7 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
           });
         })
         .catch((error) => {
-          // console.error("Error adding post:", error);
+          showAlertSwal('發生錯誤，請稍後再試');
         });
       //add to teacher's useTime
       axios
@@ -706,23 +670,22 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
                   openTime: [...oldTeacherData],
                 })
                 .then((response) => {
-                  // console.log("更新老師資料成功");
                   viewTimeCourse(clickCourse, clickDay);
                 })
                 .catch((error) => {
-                  // console.error("Error adding post:", error);
+                  showAlertSwal('發生錯誤，請稍後再試');
                 });
             })
             .catch((error) => {
-              // console.error("Error adding post:", error);
+              showAlertSwal('發生錯誤，請稍後再試');
             });
         })
         .catch((error) => {
-          // console.error("Error adding post:", error);
+          showAlertSwal('發生錯誤，請稍後再試');
         });
     })
     .catch((error) => {
-      // console.error("Error adding post:", error);
+      showAlertSwal('發生錯誤，請稍後再試');
     });
 }
 //判斷時間為早、中、晚

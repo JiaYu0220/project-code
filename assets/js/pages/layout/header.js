@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { userId, isLogin } from '../../utils/config';
+import { showAlertSwal } from '../../utils/swal';
 
 const cateItems = document.querySelectorAll('.cateitem');
 cateItems.forEach((cateItem) => {
@@ -66,7 +67,7 @@ ClassicEditor.create(document.querySelector('#editor'), {
 })
   .then((res) => {})
   .catch((error) => {
-    console.log(error);
+    showAlertSwal('發生錯誤，請稍後再試');
   });
 
 // 登出
@@ -159,7 +160,7 @@ async function getCartLength() {
     let cartNum = data.length;
     return cartNum;
   } catch (error) {
-    console.log('getCartLength', error);
+    showAlertSwal('發生錯誤，請稍後再試');
   }
 }
 

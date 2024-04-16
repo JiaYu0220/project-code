@@ -1,10 +1,12 @@
-const queryParams = new URLSearchParams(window.location.search);
-const courseId = queryParams.get('courseId'); //抓取課程ID
 import axios from 'axios';
-import { userId, isLogin, currentURL } from '../../utils/config';
+import { isLogin, currentURL } from '../../utils/config';
+import { showAlertSwal } from '../../utils/swal';
 import { handleClickStartCourseBtn } from '../course/startCourse';
 
 let data = [];
+
+const queryParams = new URLSearchParams(window.location.search);
+const courseId = queryParams.get('courseId'); //抓取課程ID
 
 //第一部分參數
 const teacherImg = document.querySelector('#teacherImg');
@@ -22,7 +24,6 @@ const intro = document.querySelector('#intro');
 const youCanGet = document.querySelector('#youCanGet');
 
 //第四部分參數
-
 const left = document.querySelector('#PreviousWeek');
 const right = document.querySelector('#NextWeek');
 
@@ -45,7 +46,6 @@ function init() {
       language.textContent = data.teacher.lang.join('/');
       level.textContent = data.level;
       intro.innerHTML = data.teacher.intro.replace(/\r\n\r\n/g, '<br><br>');
-      console.log(data.teacher.intro);
       //section3
       data.mainPoints.forEach((point) => {
         str += `<li class="list-decorate ps-4 position-relative">
@@ -151,7 +151,7 @@ async function getComment() {
       renderCommentSection(renderEmpty);
     }
   } catch (error) {
-    console.log('getComment', error);
+    showAlertSwal('發生錯誤，請稍後再試');
   }
 }
 
@@ -258,7 +258,7 @@ async function getDiscountedPrices() {
     ];
     renderDiscountedPrices(priceData);
   } catch (error) {
-    console.log('getDiscountedPrices', error);
+    showAlertSwal('發生錯誤，請稍後再試');
   }
 }
 

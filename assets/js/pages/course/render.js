@@ -414,9 +414,6 @@ function toggleFollowCourse(followBtn, following) {
           followList.push(buttonId);
 
           await axios.patch(`${_url}/users/${userId}`, { followList });
-          // .then((res) => {
-          // console.log("4. res.data.followList", res.data.followList);
-          // });
         }
       }
     })

@@ -164,7 +164,7 @@ cartList.addEventListener('click', (e) => {
         break;
       // 日期 input
       case 'hasDatepicker':
-        setAppointDatepicker('.hasDatepicker', openDate[cartIndex]);
+        setAppointDatepicker(e.target, openDate[cartIndex]);
         break;
       default:
         break;
@@ -173,10 +173,6 @@ cartList.addEventListener('click', (e) => {
 });
 
 function handleAppointmentNum(action) {
-  // 幫新增、刪除按鈕加 disabled
-  updateAppointmentBtn();
-  // 更新剩餘堂數
-  updateRemainNum();
   if (action === 'reduce') {
     appointCarts[cartIndex].appointmentNum--;
     // 刪除 InputGroup
@@ -188,23 +184,29 @@ function handleAppointmentNum(action) {
     // 幫新增的 InputGroup 加上 datepicker
     datepicker();
   }
+  // 幫新增、刪除按鈕加 disabled
+  updateAppointmentBtn();
+  // 更新剩餘堂數
+  updateRemainNum();
 }
 
 // 幫新增、刪除按鈕加 disabled
 function updateAppointmentBtn() {
   const addBtn = cartCard.querySelector('.btn-addAppointment');
   const reduceBtn = cartCard.querySelector('.btn-reduceAppointment');
-  addBtn.disabled = false;
-  reduceBtn.disabled = false;
   // 若預約堂數已滿就不能再加
   if (
     appointCarts[cartIndex].appointmentNum == appointCarts[cartIndex].quantity
   ) {
     addBtn.disabled = true;
+  } else {
+    addBtn.disabled = false;
   }
   // 若預約1堂就不能再刪
   if (appointCarts[cartIndex].appointmentNum == 1) {
     reduceBtn.disabled = true;
+  } else {
+    reduceBtn.disabled = false;
   }
 }
 
